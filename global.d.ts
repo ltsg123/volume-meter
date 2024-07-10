@@ -7,6 +7,10 @@ declare module "*?worker" {
   export default func;
 }
 
+declare module "*?worker&url" {
+  export default string;
+}
+
 declare module "*?worker&inline" {
   const func: new (options?: WorkerOptions) => Worker;
   export default func;

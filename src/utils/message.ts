@@ -1,5 +1,6 @@
 import { Message, MessageType } from "../types";
 import { getRandomString } from "./helper";
+import workletUrl from "../worklet/index?worker&url";
 import logger from "./logger";
 let workletNode: AudioWorkletNode | null;
 const workerMsgMap = new Map<string, (data: any) => void>();
@@ -28,7 +29,7 @@ async function initWorker(context: AudioContext): Promise<AudioWorkletNode> {
   /**
    * wasm use copy instead of transfer
    */
-  await context.audioWorklet.addModule("../src/worklet/index.ts");
+  await context.audioWorklet.addModule(workletUrl);
   workerOrWorklet = workletNode = new AudioWorkletNode(
     context,
     "volume-processor"

@@ -8,7 +8,8 @@
   "description": "Audio Stream Recognition In Web",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && tsc && tsx ./scripts/build-api.ts"
+    "build": "vite build && tsc && tsx ./scripts/build-api.ts",
+    "build:demo": "NODE_ENV=demo vite build"
   },
   "devDependencies": {
     "@microsoft/api-extractor": "^7.36.0",
